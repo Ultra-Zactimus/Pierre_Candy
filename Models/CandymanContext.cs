@@ -10,7 +10,7 @@ namespace Candyman.Models
     public DbSet<TreatFlavor> TreatFlavor { get; set; }
 
     public CandymanContext(DbContextOptions options): base(options) { }
-    public override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
       optionsBuilder.UseLazyLoadingProxies();
     }

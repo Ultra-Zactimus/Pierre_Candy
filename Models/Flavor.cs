@@ -4,7 +4,7 @@ namespace Candyman.Models
 {
   public class Flavor
   {
-    public Catalog()
+    public Flavor()
     {
       this.JoinEntities = new HashSet<TreatFlavor>();
     }
