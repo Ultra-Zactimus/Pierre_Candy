@@ -10,10 +10,10 @@
 <hr />
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(user => user.Email)
+    <label>Enter your Email:</label>
     @Html.TextBoxFor(user => user.Email)
 
-    @Html.LabelFor(user => user.Password)
+    <label>Enter your Password:</label>
     @Html.PasswordFor(user => user.Password)
 
     <input type="submit" value="Log in" class="btn btn-success" required/>

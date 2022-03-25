@@ -1,0 +1,23 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Candyman.ViewModels;
+
+@model RegisterViewModel;
+
+<h2>Registration</h2>
+<hr />
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+    <label>Enter your Email:</label>
+    @Html.TextBoxFor(user=> user.Email)
+
+    <label>Enter your Password:</label>
+    @Html.PasswordFor(user=> user.Password)
+
+    <label>Please Re-enter your Password:</label>
+    @Html.PasswordFor(user=> user.ConfirmPassword)
+
+    <input type="submit" value="Register" class="btn btn-success" required/>
+}
