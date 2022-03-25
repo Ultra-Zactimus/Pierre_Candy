@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Candyman.Models.Flavor
+
+<h1>Create a New Flavor</h1>
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Description)
+  @Html.TextBoxFor(model => model.Description)
+  <input type="submit" value="Add Flavor" />
+}
