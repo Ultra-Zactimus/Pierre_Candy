@@ -5,7 +5,7 @@
 @using Candyman.Models;
 @model IEnumerable<Candyman.Models.Treat>
 
-<h1>A treat for @User.Identity.Name &#128512;</h1>
+<h1>&#128512; A treat for @User.Identity.Name &#128512;</h1>
 
 @if (Model.Any())
 {
@@ -21,5 +21,5 @@ else
   <h3>&#128533; There aren't any treats to choose from. &#128533;</h3>
 }
 
-<p><em>Would you like to add some? &#128516;</em></p>
-<h3>@Html.ActionLink("Add A Book", "Create", "Books")</h3>
+<p>&#128516; <em>Would you like to add some?</em> &#128516;</p>
+<h3>@Html.ActionLink("Add A Treat", "Create", "Treats")</h3>

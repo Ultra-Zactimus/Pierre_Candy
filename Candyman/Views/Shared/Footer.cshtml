@@ -1,4 +1,18 @@
 <footer>
-  <h4><strong>@Html.ActionLink("LOGIN", "Login", "Account")</strong></h4>
-  <h4><strong>@Html.ActionLink("REGISTER", "Register", "Account")</strong></h4>
+
+  <h4><strong>
+      @Html.ActionLink("LOGIN", "Login", "Account")
+    </strong></h4>
+
+  <h4><strong>
+      @Html.ActionLink("REGISTER", "Register", "Account")
+    </strong></h4>
+
+  <h4><strong>
+      @using (Html.BeginForm("Logoff", "Account"))
+      {
+        <input type="submit" class="btn btn-success" value="Log Out" />
+      }
+    </strong></h4>
+
 </footer>

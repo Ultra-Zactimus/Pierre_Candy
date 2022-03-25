@@ -76,5 +76,6 @@ namespace Candyman.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index");
         }
+
     }
 }

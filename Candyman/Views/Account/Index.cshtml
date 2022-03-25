@@ -8,9 +8,5 @@
 <hr />
 @if (User.Identity.IsAuthenticated)
 {
-    <p>Hello @User.Identity.Name!</p>
-    @using (Html.BeginForm("LogOff", "Account"))
-    {
-        <input type="submit" class="btn btn-success" value="Log Out" />
-    }
+    <h4><strong>Hello</strong>, @User.Identity.Name! You have been successfuly logged in.</h4>
 }

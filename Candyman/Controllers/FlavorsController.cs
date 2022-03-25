@@ -6,10 +6,10 @@ using System.Linq;
 
 namespace Candyman.Controllers
 {
-  public class FlavorsControllers : Controller
+  public class FlavorsController : Controller
   {
     private readonly CandymanContext _db;
-    public FlavorsControllers(CandymanContext db)
+    public FlavorsController(CandymanContext db)
     {
       _db = db;
     }
@@ -48,6 +48,7 @@ namespace Candyman.Controllers
       return View(thisFlavor);
     }
 
+    [HttpPost]
     public ActionResult Edit(Flavor flavor)
     {
       _db.Entry(flavor).State = EntityState.Modified;
