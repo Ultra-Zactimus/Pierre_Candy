@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Candyman.Models.Treat
+
+<h2>Add To Flavors</h2>
+
+<h4>Assign this Treat to a Flavor: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+  @Html.HiddenFor(model => model.TreatId)
+
+  @Html.Label("Select Flavor")
+  @Html.DropDownList("FlavorId")
+
+  <input type="submit" value="Save" />
+}
