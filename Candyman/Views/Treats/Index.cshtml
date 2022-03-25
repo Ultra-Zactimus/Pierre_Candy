@@ -1,0 +1,25 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Candyman.Models;
+@model IEnumerable<Candyman.Models.Treat>
+
+<h1>A treat for @User.Identity.Name &#128512;</h1>
+
+@if (Model.Any())
+{
+  <ul>
+    @foreach (Treat treat in Model)
+    {
+      <li>@Html.ActionLink($"{treat.Name}", "Details", new { id = treat.TreatId })</li>
+    }
+  </ul>
+} 
+else
+{
+  <h3>&#128533; There aren't any treats to choose from. &#128533;</h3>
+}
+
+<p><em>Would you like to add some? &#128516;</em></p>
+<h3>@Html.ActionLink("Add A Book", "Create", "Books")</h3>
