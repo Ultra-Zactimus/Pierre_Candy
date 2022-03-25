@@ -1,0 +1,14 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Candyman.Models.Treat
+
+<h1>WARNING!</h1>
+<h3><em>You will be removing this treat from the system. Are you sure?</em></h3>
+<label>Name of Treat:</label>
+@Html.DisplayFor(model => model.Name)
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete" />
+}
