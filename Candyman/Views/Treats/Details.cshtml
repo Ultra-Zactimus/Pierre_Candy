@@ -2,6 +2,7 @@
   Layout = "_Layout";
 }
 
+@using System.Security.Claims
 @model Candyman.Models.Treat
 
 <h1>Treat Details</h1>
@@ -20,14 +21,21 @@ else
   @foreach(var join in Model.JoinEntities)
   {
     <li>@join.Flavor.Description</li>
-    @using (Html.BeginForm("DeleteFlavor", "Treats"))
+
+    @if (User.Identity.IsAuthenticated)
     {
-      @Html.Hidden("joinId", @join.TreatFlavorId)
-      <input type="submit" value="Delete"/>
+      @using (Html.BeginForm("DeleteFlavor", "Treats"))
+      {
+        @Html.Hidden("joinId", @join.TreatFlavorId)
+        <input type="submit" value="Delete"/>
+      }
     }
   }
   </ul>
 }
-<h3>@Html.ActionLink("Add A Flavor", "AddFlavor", new { id = Model.TreatId })</h3>
-<h3>@Html.ActionLink("Edit This Treat", "Edit", new { id = Model.TreatId })</h3>
-<h3>@Html.ActionLink("Delete This Treat", "Delete", new { id = Model.TreatId })</h3>
+@if (User.Identity.IsAuthenticated)
+{
+  <h3>@Html.ActionLink("Add A Flavor", "AddFlavor", new { id = Model.TreatId })</h3>
+  <h3>@Html.ActionLink("Edit This Treat", "Edit", new { id = Model.TreatId })</h3>
+  <h3>@Html.ActionLink("Delete This Treat", "Delete", new { id = Model.TreatId })</h3>
+}

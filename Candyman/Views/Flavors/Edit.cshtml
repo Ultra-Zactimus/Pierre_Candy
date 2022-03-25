@@ -2,18 +2,25 @@
   Layout = "_Layout";
 }
 
+<div id="push-up"></div>
+
+@using System.Security.Claims
 @model Candyman.Models.Flavor
 
-<h2>Edit</h2>
-
-<h4>Edit this flavor: @Html.DisplayFor(model => model.Description)</h4>
-
-@using (Html.BeginForm())
+@if (User.Identity.IsAuthenticated)
 {
-  @Html.HiddenFor(model => model.FlavorId)
+  <h2>Edit</h2>
 
-  @Html.LabelFor(model => model.Description)
-  @Html.EditorFor(model => model.Description)
+  <h4>Edit this flavor: @Html.DisplayFor(model => model.Description)</h4>
 
-  <input type="submit" value="Save" />
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.FlavorId)
+
+    @Html.LabelFor(model => model.Description)
+    @Html.EditorFor(model => model.Description)
+
+    <input type="submit" value="Save" />
+  }
 }
+<div id="push-down"></div>

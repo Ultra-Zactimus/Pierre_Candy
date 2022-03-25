@@ -21,5 +21,8 @@ else
   <h3>&#128533; There aren't any treats to choose from. &#128533;</h3>
 }
 
-<p>&#128516; <em>Would you like to add some?</em> &#128516;</p>
-<h3>@Html.ActionLink("Add A Treat", "Create", "Treats")</h3>
+@if (User.Identity.IsAuthenticated)
+{
+  <p>&#128516; <em>Would you like to add some?</em> &#128516;</p>
+  <h3>@Html.ActionLink("Add A Treat", "Create", "Treats")</h3>
+}

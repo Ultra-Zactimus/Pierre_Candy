@@ -2,6 +2,9 @@
   Layout = "_Layout";
 }
 
+<div id="push-up"></div>
+
+@using System.Security.Claims
 @model Candyman.Models.Flavor
 
 <h1>Create a New Flavor</h1>
@@ -11,3 +14,5 @@
   @Html.TextBoxFor(model => model.Description)
   <input type="submit" value="Add Flavor" />
 }
+
+<div id="push-down"></div>

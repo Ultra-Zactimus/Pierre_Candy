@@ -2,13 +2,20 @@
   Layout = "_Layout";
 }
 
+<div id="push-up"></div>
+
+@using System.Security.Claims
 @model Candyman.Models.Flavor
 
-<h2>WARNING!</h2>
-<h4>You will be deleting a flavor from the system. Are you sure?</h4>
-<label>Name of Flavor:</label>
-<p>@Html.DisplayFor(model => model.Description)</p>
-@using (Html.BeginForm())
+@if (User.Identity.IsAuthenticated)
 {
-  <input type="submit" value="Delete" />
+  <h2 id="warning">WARNING!</h2>
+  <h4>You will be deleting a flavor from the system. Are you sure?</h4>
+  <label>Name of Flavor:</label>
+  <p>@Html.DisplayFor(model => model.Description)</p>
+  @using (Html.BeginForm())
+  {
+    <input type="submit" value="Delete" />
+  }
 }
+<div id="push-down"></div>

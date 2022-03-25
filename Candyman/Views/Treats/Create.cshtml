@@ -2,17 +2,21 @@
   Layout = "_Layout";
 }
 
+@using System.Security.Claims
 @model Candyman.Models.Treat
 
-<h4>&#127852; Add a new Candy! &#127852;</h4>
-
-@using (Html.BeginForm())
+@if (User.Identity.IsAuthenticated)
 {
-  @Html.LabelFor(model => model.Name)
-  @Html.TextBoxFor(model => model.Name)
+  <h4>&#127852; Add a new Candy! &#127852;</h4>
 
-  @Html.Label("Select a Flavor!")
-  @Html.DropDownList("FlavorId")
+  @using (Html.BeginForm())
+  {
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
 
-  <input type="submit" value="Add Treat" class="btn btn-success" />
+    @Html.Label("Select a Flavor!")
+    @Html.DropDownList("FlavorId")
+
+    <input type="submit" value="Add Treat" class="btn btn-success" />
+  }
 }

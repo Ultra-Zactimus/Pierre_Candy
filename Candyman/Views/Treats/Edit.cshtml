@@ -2,21 +2,25 @@
   Layout = "_Layout";
 }
 
+@using System.Security.Claims
 @model Candyman.Models.Treat
 
-<h1>Edit</h1>
-
-<h4>Make changes to this treat: @Html.DisplayFor(model => model.Name)</h4>
-
-@using (Html.BeginForm())
+@if (User.Identity.IsAuthenticated)
 {
-  @Html.HiddenFor(model => model.TreatId)
+  <h1>Edit</h1>
 
-  @Html.LabelFor(model => model.Name)
-  @Html.EditorFor(model => model.Name)
+  <h4>Make changes to this treat: @Html.DisplayFor(model => model.Name)</h4>
 
-  @Html.Label("Select a Flavor")
-  @Html.DropDownList("FlavorId")
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.TreatId)
 
-  <input type="submit" value="Save" />
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name)
+
+    @Html.Label("Select a Flavor")
+    @Html.DropDownList("FlavorId")
+
+    <input type="submit" value="Save" />
+  }
 }

@@ -2,6 +2,9 @@
   Layout = "_Layout";
 }
 
+<div id="push-up"></div>
+
+@using System.Security.Claims
 @using Candyman.Models;
 
 <h1>Flavors</h1>
@@ -11,11 +14,13 @@
   <p><em>No flavors have been added. Would you like to add some?</em></p>
 } 
 
-<ul>
   @foreach(Flavor flavor in Model)
   {
-    <li>@Html.ActionLink($"{flavor.Description}", "Details", new { id = flavor.FlavorId })</li>
+    <h3><strong>@Html.ActionLink($"{flavor.Description}", "Details", new { id = flavor.FlavorId })</strong></h3>
   }
-</ul>
-
-<h4>@Html.ActionLink("Add A New Flavor", "Create")</h4>
+<div id="push-down"></div>
+@if (User.Identity.IsAuthenticated)
+{
+  <h5><strong>@Html.ActionLink("Add A New Flavor", "Create")</strong></h5>
+}
+<div id="push-down"></div>

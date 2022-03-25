@@ -2,12 +2,15 @@
   Layout = "_Layout";
 }
 
+<div id="push-up"></div>
+
+@using System.Security.Claims
 @model Candyman.Models.Flavor;
 
 <h2>Flavor Details</h2>
 <hr />
 <label>Flavor Description: </label>
-<h5>@Html.DisplayFor(model => model.Description)</h5>
+<h5><strong>@Html.DisplayFor(model => model.Description)</strong></h5>
 
 @if(@Model.JoinEntities.Count == 0)
 {
@@ -19,9 +22,13 @@ else
   <ul>
   @foreach(var join in Model.JoinEntities)
   {
-    <li>@join.Treat.Name</li>
+    <li><strong>@join.Treat.Name</strong></li>
   }
   </ul>
 }
+@if (User.Identity.IsAuthenticated)
+{
 <h3><strong>@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })</strong></h3>
 <h3><strong>@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</strong></h3>
+}
+<div id="push-down"></div>
